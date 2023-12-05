@@ -1,0 +1,87 @@
+*{
+    margin: auto;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.gameBox{
+    width: 900px; height: 900px;
+    position: relative;
+}
+.timeBox{
+    width: 95%; height: 30px;
+    background-image: url(./img/day&night.png);
+    background-position: center;
+    background-position-x: 3800px;
+    position: relative;
+    margin: 20px auto;
+}
+.timeBoxMoon{
+    background-image: url(./img/sun&moon.png);
+    background-size: cover;
+    width: 50px;height: 50px;
+    position: absolute; top: -10px; left: calc(50% - 25px);
+}
+.timeBoxSun{
+    background-image: url(./img/sun&moon.png);
+    background-size: cover;
+    background-position: -50px;
+    width: 50px;height: 50px;
+    position: absolute; top: -10px; left: -25px;
+}
+#playerBox{
+    width: 70%; height: 450px;
+    margin: 0;
+    display: grid;
+    grid-template: repeat(4, 1fr)/ repeat(3, 1fr);
+    gap: 10px;
+}
+.playerStatus{
+    width: 100%; height: 100%;
+    position: relative;
+    border: 2px solid rgb(179, 179, 179); box-sizing: border-box; border-radius: 15px;
+    background-color: rgba(192, 192, 192, 0.37);
+}
+.playerStatus>img{
+    height: 70px;
+    position: absolute;
+    top: 7px; left: 7px;
+    border-radius: 15px;
+}
+.playerStatus>p{
+    position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%);
+}
+#userBox{
+    width: calc(30% - 20px); height: 450px;
+    background-color: green;
+    position: absolute;right: 0; top: 50px;
+}
+.gameStatus{
+    width: 100%; height: 30px;
+    margin-top: 20px;
+    background-color: yellow;
+}
+#gameChatBox{
+    background-color: rgba(0, 0, 0, 0.123);
+    margin-top: 20px;
+    height: calc(900px - 30px - 20px - 450px - 20px - 30px - 20px - 30px);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+#gameChatBox>p{
+    margin: 0;
+}
+#gameChatBox>p>span{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 15px;
+}
+#chatInputBox{
+    position: absolute;
+    bottom: 0;
+    width: 100%; height: 30px;
+    left: 0;
+    box-sizing: border-box;
+    text-indent: 10px;
+}
