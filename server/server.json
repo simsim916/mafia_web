@@ -4,73 +4,89 @@
       "id": 1,
       "name": "최문석",
       "img": "./img/user2.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select":[
+
+      ]
     },
     {
       "id": 2,
       "name": "김수빈",
       "img": "./img/user3.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     },
     {
       "id": 3,
       "name": "주용현",
       "img": "./img/user1.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     },
     {
       "id": 4,
       "name": "장근정",
       "img": "./img/user4.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     },
     {
       "id": 5,
       "name": "임명건",
       "img": "./img/user1.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     },
     {
       "id": 6,
       "name": "김수옥",
       "img": "./img/user1.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     },
     {
       "id": 7,
       "name": "전예원",
       "img": "./img/user1.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     },
     {
       "id": 8,
       "name": "백승현",
       "img": "./img/user5.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     },
     {
       "id": 9,
       "name": "임시운",
       "img": "./img/user1.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     },
     {
       "id": 10,
       "name": "조아라",
       "img": "./img/user1.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     },
     {
       "id": 11,
       "name": "이정혁",
       "img": "./img/user1.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": [
+        
+      ]
     },
     {
       "id": 12,
       "name": "김수미",
       "img": "./img/user1.png",
-      "role": "마피아"
+      "role": "마피아",
+      "select": []
     }
   ],
   "chating": [
