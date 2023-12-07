@@ -1,5 +1,13 @@
 'use strict';
 
+import { collection, getDocs } from "firebase/firestore";
+
+const querySnapshot = await getDocs(collection(db, "users"));
+querySnapshot.forEach((doc) => {
+  console.log(`${doc.id} => ${doc.data()}`);
+});
+
+
 let playerStatus;
 let gameChatBox = document.getElementById('gameChatBox'),
   chatInputBox = document.getElementById('chatInputBox'),
