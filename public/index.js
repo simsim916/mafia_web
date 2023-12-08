@@ -1,12 +1,13 @@
 'use strict';
 
-import { collection, getDocs } from "firebase/firestore";
+import { getDatabase, ref, onValue } from "./__/firebase/database";
 
-const querySnapshot = await getDocs(collection(db, "users"));
-querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
+const db = getDatabase();
+const starCountRef = ref(db, 'posts/' + postId + '/starCount');
+onValue(starCountRef, (snapshot) => {
+  const data = snapshot.val();
+  updateStarCount(postElement, data);
 });
-
 
 let playerStatus;
 let gameChatBox = document.getElementById('gameChatBox'),
