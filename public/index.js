@@ -1,13 +1,5 @@
+
 'use strict';
-
-import { getDatabase, ref, onValue } from "./__/firebase/database";
-
-const db = getDatabase();
-const starCountRef = ref(db, 'posts/' + postId + '/starCount');
-onValue(starCountRef, (snapshot) => {
-  const data = snapshot.val();
-  updateStarCount(postElement, data);
-});
 
 let playerStatus;
 let gameChatBox = document.getElementById('gameChatBox'),
@@ -17,7 +9,7 @@ let gameChatBox = document.getElementById('gameChatBox'),
   timeBoxMoon = document.getElementById('timeBoxMoon'),
   playerBox = document.getElementById('playerBox')
 
-  
+
 let selectedPlayer;
 let username = "홍길동"
 let usertext = '하하하'
@@ -28,14 +20,14 @@ let nightTime = 10,
 makeUserBox()
 
 function makeNight() {
-  timeBoxMoon.style.transition =`${dayTime}s`
-  timeBoxMoon.style.transform ="translateX(900px)"
+  timeBoxMoon.style.transition = `${dayTime}s`
+  timeBoxMoon.style.transform = "translateX(900px)"
   timeBoxSky.style.transition = `${dayTime}s`
-  timeBoxSky.style.backgroundPosition ="0px"
-  setTimeout(()=>{
+  timeBoxSky.style.backgroundPosition = "0px"
+  setTimeout(() => {
     timeBoxSun.style.transition = "0s"
-    timeBoxSun.style.transform ="translateX(0px)";
-  },dayTime*1000)
+    timeBoxSun.style.transform = "translateX(0px)";
+  }, dayTime * 1000)
 }
 
 function makeDay() {
@@ -50,20 +42,20 @@ function makeDay() {
     timeBoxMoon.style.transform = "translateX(0px)";
     timeBoxSky.style.transition = "0s"
     timeBoxSky.style.backgroundPosition = "-900px"
-  }, nightTime*1000)
+  }, nightTime * 1000)
 }
 
-function showVoted(){
+function showVoted() {
 
 }
 
-function makeVote(){
-  for(let i = 0 ; i < playerStatus.length ; i++){
+function makeVote() {
+  for (let i = 0; i < playerStatus.length; i++) {
     playerStatus[i].setAttribute('onclick', "votePlayer(event)");
   }
 }
 
-function removeVote(){
+function removeVote() {
   for (let i = 0; i < playerStatus.length; i++) {
     playerStatus[i].removeAttribute('onclick');
   }
@@ -87,33 +79,37 @@ function removeVote(){
 //   //   body: JSON.stringify({
 //   //      })
 //   // })
-  
+
 
 // }
 
-function votePlayer(event){
+function votePlayer(event) {
   let targetBOX = event.target.closest('.playerStatus');
-  if(selectedPlayer)selectedPlayer.classList.remove("selected")
+  if (selectedPlayer) selectedPlayer.classList.remove("selected")
   targetBOX.classList.add("selected")
-  selectedPlayer=targetBOX;
+  selectedPlayer = targetBOX;
 }
 
 function makeUserBox() {
-  fetch("http://localhost:3000/user")
-    .then(response => response.json())
-    .then((userData) => {
-      playerBox.innerHTML = ``;
-      for (let i = 0; i < userData.length; i++) {
-        playerBox.innerHTML += `
+  firebase.database().ref("user").on("value", snapshot => {
+    const object = snapshot.val();
+    playerBox.innerHTML = ``;
+    for (let i = 0; i < object.length; i++) {
+      playerBox.innerHTML += `
         <div class="playerStatus">
-            <img src="${userData[i].img}">
-            <p>${userData[i].name}</p>
+            <img src="${object[i].img}">
+            <p>${object[i].name}</p>
         </div>
       `;
-      }
-    })
-    .then(()=>playerStatus = document.getElementsByClassName('playerStatus')
+    }
+  })
+    .then(() => playerStatus = document.getElementsByClassName('playerStatus')
     )
+}
+function test() {
+  firebase.database().ref("user").on("value", snapshot => {
+    const object = snapshot.val();
+  });
 }
 
 function refreshChatBox() {
